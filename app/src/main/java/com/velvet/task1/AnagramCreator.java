@@ -1,23 +1,75 @@
 package com.velvet.task1;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class AnagramCreator {
-    static public ArrayList<String> create(ArrayList<String> input, ArrayList<Character> ignored) {
-        ArrayList<String> output = new ArrayList<>();
-        for (int i = 0; i < input.size(); i++) {
-            StringBuilder temp = new StringBuilder();
-            for (int j = 0; j < input.get(i).length(); j++) {
-                if (ignored.contains(input.get(i).charAt(j))!=true) {
-                    temp.insert(0, input.get(i).charAt(j));
+    static public String create(CharSequence input, CharSequence ignored) {
+        StringBuilder inputSB = new StringBuilder(input);
+        StringBuilder ignoredSB = new StringBuilder(ignored);
+        ignoredSB.append(" ");
+        StringBuilder output = new StringBuilder();
+        if (inputSB.length()>=1) {
+            int tempReverted = 0;
+            int tempConst = 0;
+            String previous1 = "N";
+            for (int i = 0; i < inputSB.length(); i++) {
+                if (ignoredSB.indexOf(Character.toString(inputSB.charAt(i))) != -1) {
+                    if ((previous1 == "R") || (previous1 == "N")) {
+                        tempConst++;
+                        previous1 = "C";
+                    }
                 }
                 else {
-                    temp.insert(j, input.get(i).charAt(j));
+                    if ((previous1 == "C") || (previous1 == "N")) {
+                        tempReverted++;
+                        previous1 = "R";
+                    }
                 }
             }
-            output.add(temp.toString());
+            int tempCounter = 0;
+            String previous2 = "N";
+            StringBuilder[] wordArray = new StringBuilder[tempConst + tempReverted];
+            for (int i = 0; i < wordArray.length; i++) {
+                wordArray[i] = new StringBuilder("");
+            }
+            for (int i = 0; i < inputSB.length(); i++) {
+                if (ignoredSB.indexOf(Character.toString(inputSB.charAt(i))) != -1) {
+                    if ((previous2 == "C") || (previous2 == "N")) {
+                        wordArray[tempCounter].append(inputSB.charAt(i));
+                        previous2 = "C";
+                    }
+                    else {
+                        tempCounter++;
+                        wordArray[tempCounter].append(inputSB.charAt(i));
+                        previous2 = "C";
+                    }
+                }
+                else {
+                    if ((previous2 == "R") || (previous2 == "N")) {
+                        wordArray[tempCounter].append(inputSB.charAt(i));
+                        previous2 = "R";
+                    }
+                    else {
+                        tempCounter++;
+                        wordArray[tempCounter].append(inputSB.charAt(i));
+                        previous2 = "R";
+                    }
+                }
+            }
+            for (int i = 0; i < wordArray.length; i++) {
+                if (ignoredSB.indexOf(Character.toString(wordArray[i].charAt(0))) != -1) {
+                    output.append(wordArray[i].toString());
+                }
+                else {
+                    output.append(wordArray[i].reverse().toString());
+                }
+            }
         }
-
-        return output;
+        else {
+            output.append(inputSB);
+        }
+        return output.toString();
     }
 }
