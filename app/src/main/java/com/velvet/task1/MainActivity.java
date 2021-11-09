@@ -35,6 +35,6 @@ public class MainActivity extends AppCompatActivity {
         };
         anagramInput.addTextChangedListener(textWatcher);
         anagramIgnore.addTextChangedListener(textWatcher);
-        anagramIgnore.setText("0123456789`~$^+=<>“?/|\\");
+        anagramIgnore.setText("0123456789`~$^+=<>!“?/|\\");
     }
 }
