@@ -13,8 +13,7 @@
         app:layout_constraintBottom_toTopOf="@+id/anagramIgnore"
         app:layout_constraintEnd_toEndOf="@id/guideline2"
         app:layout_constraintStart_toStartOf="@id/guideline1"
-        app:layout_constraintTop_toBottomOf="@id/anagramOutput"
-        android:hint="Type phrase"/>
+        app:layout_constraintTop_toBottomOf="@id/anagramOutput" />
 
     <TextView
         android:id="@+id/anagramOutput"
@@ -25,7 +24,6 @@
         app:layout_constraintStart_toStartOf="@id/guideline1"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="20sp"
-        android:text="Your anagram"
         android:textColor="#540077"/>
 
     <EditText
@@ -35,8 +33,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="@id/guideline2"
         app:layout_constraintStart_toStartOf="@id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/anagramInput"
-        android:hint="Ignored characters"/>
+        app:layout_constraintTop_toBottomOf="@+id/anagramInput" />
 
     <TextView
         android:id="@+id/anagramInputHint"
@@ -46,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="@id/guideline2"
         app:layout_constraintStart_toStartOf="@id/guideline1"
         android:textSize="16sp"
-        android:text="Type your phrase here"
+        android:text="@string/anagramInputHintText"
         android:textColor="#540077"/>
 
     <TextView
@@ -57,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="@id/guideline2"
         app:layout_constraintStart_toStartOf="@id/guideline1"
         android:textSize="16sp"
-        android:text="Type ignored characters"
+        android:text="@string/anagramIgnoredHintText"
         android:textColor="#540077"/>
 
     <androidx.constraintlayout.widget.Guideline
