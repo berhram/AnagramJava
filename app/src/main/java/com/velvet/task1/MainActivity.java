@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                anagramOutput.setText(AnagramCreator.create(anagramInput.getText(),anagramIgnore.getText()));
+                anagramOutput.setText(AnagramCreator.create(anagramInput.getText().toString(),anagramIgnore.getText().toString()));
             }
 
             @Override
@@ -35,6 +35,5 @@ public class MainActivity extends AppCompatActivity {
         };
         anagramInput.addTextChangedListener(textWatcher);
         anagramIgnore.addTextChangedListener(textWatcher);
-        anagramIgnore.setText("0123456789`~$^+=<>!“?/|\\");
     }
 }

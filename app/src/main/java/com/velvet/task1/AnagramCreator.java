@@ -1,28 +1,32 @@
 package com.velvet.task1;
 
-import java.util.Arrays;
-
 public class AnagramCreator {
-    static public String create(CharSequence input, CharSequence ignored) {
+    static public String create(String input, String ignored) {
         String[] words = input.toString().split(" ");
-        StringBuilder ignoredSB = new StringBuilder(ignored);
         StringBuilder output = new StringBuilder();
-        for (int i = 0; i < words.length; i++) {
-            output.append(reverseWord(words[i],ignoredSB));
+        for (String word : words) {
+            output.append(reverseWord(word,ignored));
             output.append(" ");
         }
         return output.toString();
     }
-    private static String reverseWord(String input, StringBuilder ignoredSB) {
-        StringBuilder output = new StringBuilder();
-        for (int i = 0; i < input.length(); i++) {
-            if (ignoredSB.indexOf(Character.toString(input.charAt(i)))==-1) {
-                output.insert(0,input.charAt(i));
-            }
-        }
-        for (int i = 0; i < input.length(); i++) {
-            if (ignoredSB.indexOf(Character.toString(input.charAt(i)))!=-1) {
-                output.insert(i,input.charAt(i));
+    private static String reverseWord(String input, String ignored) {
+        StringBuilder output = new StringBuilder(input);
+        int i = 0;
+        int j = input.length() - 1;
+        while (i < j)
+        {
+            if (ignored.indexOf(Character.toString(input.charAt(i)))!=-1)
+                i++;
+            else if(ignored.indexOf(Character.toString(input.charAt(j)))!=-1)
+                j--;
+            else
+            {
+                String tmp = Character.toString(output.charAt(i));
+                output.replace(i,i+1,Character.toString(output.charAt(j)));
+                output.replace(j,j+1,tmp);
+                i++;
+                j--;
             }
         }
         return output.toString();
