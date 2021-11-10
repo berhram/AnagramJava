@@ -2,5 +2,4 @@
     <string name="app_name">Anagrams</string>
     <string name="anagramInputHintText">Type your phrase here</string>
     <string name="anagramIgnoredHintText">Type ignored characters</string>
-    <string name="ignored">0123456789`~$^+=&lt;&gt;!“?/|\</string>
 </resources>

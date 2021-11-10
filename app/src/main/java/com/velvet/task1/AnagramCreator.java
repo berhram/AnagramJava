@@ -2,7 +2,7 @@ package com.velvet.task1;
 
 public class AnagramCreator {
     static public String create(String input, String ignored) {
-        String[] words = input.toString().split(" ");
+        String[] words = input.split(" ");
         StringBuilder output = new StringBuilder();
         for (String word : words) {
             output.append(reverseWord(word,ignored));
@@ -11,24 +11,28 @@ public class AnagramCreator {
         return output.toString();
     }
     private static String reverseWord(String input, String ignored) {
-        StringBuilder output = new StringBuilder(input);
+        char[] output  = input.toCharArray();
         int i = 0;
         int j = input.length() - 1;
         while (i < j)
         {
-            if (ignored.indexOf(Character.toString(input.charAt(i)))!=-1)
+            if (ignored.indexOf(input.charAt(i))!=-1) {
                 i++;
-            else if(ignored.indexOf(Character.toString(input.charAt(j)))!=-1)
-                j--;
-            else
-            {
-                String tmp = Character.toString(output.charAt(i));
-                output.replace(i,i+1,Character.toString(output.charAt(j)));
-                output.replace(j,j+1,tmp);
-                i++;
+            }
+            else if(ignored.indexOf(input.charAt(j))!=-1) {
                 j--;
             }
+            else
+            {
+                char tmp = output[i];
+                output[i] = output[j];
+                output[j] = tmp;
+                i++;
+                j--;
+
+
+            }
         }
-        return output.toString();
+        return new String(output);
     }
 }
