@@ -8,7 +8,7 @@ public class AnagramCreator {
             output.append(reverseWord(word,ignored));
             output.append(" ");
         }
-        return output.toString();
+        return output.toString().trim();
     }
     private static String reverseWord(String input, String ignored) {
         char[] output  = input.toCharArray();
