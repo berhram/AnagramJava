@@ -29,8 +29,6 @@ public class AnagramCreator {
                 output[j] = tmp;
                 i++;
                 j--;
-
-
             }
         }
         return new String(output);
