@@ -1,7 +1,6 @@
-package com.velvet.task1;
+package com.velvet.anagrams;
 
 import static androidx.test.espresso.action.ViewActions.replaceText;
-import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
@@ -10,7 +9,6 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import androidx.test.espresso.Espresso;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 

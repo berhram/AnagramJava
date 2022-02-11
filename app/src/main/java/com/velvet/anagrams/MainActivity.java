@@ -1,4 +1,4 @@
-package com.velvet.task1;
+package com.velvet.anagrams;
 
 import androidx.appcompat.app.AppCompatActivity;
 

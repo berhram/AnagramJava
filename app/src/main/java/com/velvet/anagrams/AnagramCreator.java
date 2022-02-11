@@ -1,4 +1,4 @@
-package com.velvet.task1;
+package com.velvet.anagrams;
 
 public class AnagramCreator {
     static public String create(String input, String ignored) {

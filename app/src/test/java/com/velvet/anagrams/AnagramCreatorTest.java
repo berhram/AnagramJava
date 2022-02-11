@@ -1,8 +1,7 @@
-package com.velvet.task1;
+package com.velvet.anagrams;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.function.ThrowingRunnable;
 
 public class AnagramCreatorTest {
     @Test
